@@ -41,7 +41,7 @@ export default function Home() {
             </button>
 
             <div className={`nav-links ${menuOpen ? "is-open" : ""}`}>
-              <a href="#academy" onClick={() => setMenuOpen(false)}>Academy</a>
+              <a href="#academy" onClick={() => setMenuOpen(false)}>About Us</a>
               <a href="#talent" onClick={() => setMenuOpen(false)}>Talent</a>
               <a href="#stories" onClick={() => setMenuOpen(false)}>Stories</a>
             </div>
@@ -154,7 +154,7 @@ export default function Home() {
           </div>
 
           <nav className="footer-nav" aria-label="Footer navigation">
-            <a href="#academy">Academy</a>
+            <a href="#academy">About Us</a>
             <a href="#talent">Talent</a>
             <a href="#stories">Stories</a>
             <a href="#why-nextkick">Why Nextkick</a>
