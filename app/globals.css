@@ -323,9 +323,33 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
   }
   .nav-links a:hover { color: var(--lime); }
   .hero-content { padding-top: 18vh; }
-  .hero-copy { margin-top: 32px; }
+  h1 {
+    font-size: clamp(3rem, 18vw, 5rem);
+    line-height: .82;
+  }
+  .hero-copy {
+    margin-top: 32px;
+    max-width: 100%;
+  }
   .hero-footer { bottom: 20px; left: 5vw; }
   .hero-footer span:last-child { display: none; }
+  .affiliate-section {
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .affiliate-content {
+    flex-direction: column;
+    gap: 18px;
+    max-width: 100%;
+  }
+  .affiliate-copy {
+    max-width: 100%;
+    text-align: center;
+  }
+  .affiliate-logo {
+    max-width: 220px;
+  }
   .story-stack { gap: 32px; }
   .story-copy p { margin-bottom: 10px; }
   .why-heading {
