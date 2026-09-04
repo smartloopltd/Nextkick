@@ -55,7 +55,7 @@ export default function Home() {
             We discover football talent from every corner of the world, develop their craft, and help them turn raw potential into professional dreams.
           </p>
           <div className="hero-actions">
-            <a className="button button-bright" href="https://wa.me/2349151910798" target="_blank" rel="noreferrer">Speak to our management <span aria-hidden="true">↗</span></a>
+            <a className="button button-bright" href="https://play.google.com/store/apps/details?id=com.nextkick.user" target="_blank" rel="noreferrer">Get our app and register today <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -67,20 +67,21 @@ export default function Home() {
       </section>
 
       <section className="brand-section">
-        <div className="section-header">
-          <p className="section-kicker">What we do</p>
-          <h2>Where talent meets opportunity.</h2>
-        </div>
-
         <div className="story-stack">
           <article className="story-block" id="academy">
             <div className="story-copy">
-              <h3>Academy</h3>
+              <h3>About Us</h3>
               <p>
-                We build disciplined, high-performance environments where young players develop technical quality, football intelligence, and confidence.
+                NextKick is designed to transform the way young football talents in Nigeria and across Africa are developed and discovered.
               </p>
               <p>
-                Through structured coaching, focused training, and real match pressure, we help players grow stronger, sharper, and more prepared for the next step.
+                With NextKick, young players can create detailed profiles that highlight their growth and performance over time. The app offers a comprehensive platform for tracking development through daily drills, and it also hosts exciting tournaments. These tournaments feature live scoring, team standings, and individual player stats, making it easy for everyone to follow and support the athletes.
+              </p>
+              <p>
+                As we continue to grow, we also plan to empower users to organize their own tournaments, creating a vibrant community for young footballers.
+              </p>
+              <p>
+                And the best part? NextKick also serves as a scouting tool. It allows scouts and agents to discover new talent by viewing player profiles and watching their progress, making it a fantastic opportunity for young athletes to get noticed.
               </p>
             </div>
           </article>
@@ -147,8 +148,8 @@ export default function Home() {
 
           <div className="footer-cta">
             <p className="section-kicker">Start the conversation</p>
-            <a className="footer-action" href="https://wa.me/2349151910798" target="_blank" rel="noreferrer">
-              Speak to our management <span aria-hidden="true">↗</span>
+            <a className="footer-action" href="https://play.google.com/store/apps/details?id=com.nextkick.user" target="_blank" rel="noreferrer">
+              Get our app and register today <span aria-hidden="true">↗</span>
             </a>
           </div>
 

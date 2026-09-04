@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Player silhouette logo">
+  <defs>
+    <style>
+      .bg { fill: #0d47b4; }
+      .figure { fill: #ffffff; }
+      .outline { fill: none; stroke: #ffffff; stroke-width: 28; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="512" height="512" rx="72"/>
+
+  <g transform="translate(0 10)">
+    <circle class="figure" cx="254" cy="118" r="38"/>
+
+    <path class="figure" d="M240 166L203 214L188 268L204 314L243 290L268 290L302 314L326 270L314 214L280 166Z"/>
+
+    <path class="outline" d="M180 214L118 182L72 214"/>
+    <path class="outline" d="M330 214L392 182L440 214"/>
+
+    <path class="outline" d="M205 314L170 392L150 450"/>
+    <path class="outline" d="M302 314L346 390L388 450"/>
+    <path class="outline" d="M224 290L186 332L162 416"/>
+    <path class="outline" d="M286 290L326 336L364 418"/>
+  </g>
+</svg>
