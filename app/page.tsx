@@ -1,9 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navMenuRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleOutsidePointer = (event: PointerEvent) => {
+      if (navMenuRef.current && !navMenuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handleOutsidePointer);
+    return () => document.removeEventListener("pointerdown", handleOutsidePointer);
+  }, [menuOpen]);
 
   return (
     <main>
@@ -14,7 +28,7 @@ export default function Home() {
             <span>Nextkick</span>
           </a>
 
-          <nav className="nav-menu" aria-label="Main navigation">
+          <nav className="nav-menu" ref={navMenuRef} aria-label="Main navigation">
             <button
               className="nav-toggle"
               aria-label="Toggle navigation"
@@ -41,7 +55,7 @@ export default function Home() {
             We discover football talent from every corner of the world, develop their craft, and help them turn raw potential into professional dreams.
           </p>
           <div className="hero-actions">
-            <a className="button button-bright" href="#apply">Speak to our management <span aria-hidden="true">↗</span></a>
+            <a className="button button-bright" href="https://wa.me/2349151910798" target="_blank" rel="noreferrer">Speak to our management <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -96,6 +110,62 @@ export default function Home() {
           </article>
         </div>
       </section>
+
+      <section className="why-section" id="why-nextkick">
+        <div className="why-inner">
+          <div className="why-heading">
+            <p className="section-kicker">Why Nextkick</p>
+            <h2>Built for the player behind the potential.</h2>
+          </div>
+
+          <div className="why-grid">
+            <article>
+              <h3>See further</h3>
+              <p>Our global scouting network finds character and promise beyond the usual spotlight.</p>
+            </article>
+            <article>
+              <h3>Develop fully</h3>
+              <p>Technical growth, football intelligence, and personal discipline move forward together.</p>
+            </article>
+            <article>
+              <h3>Move forward</h3>
+              <p>We connect committed players with the guidance and opportunities needed for their next step.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <footer className="site-footer" id="contact">
+        <div className="footer-main">
+          <div className="footer-brand-block">
+            <a className="brand footer-brand" href="#top" aria-label="Nextkick home">
+              <span className="brand-mark">N</span>
+              <span>Nextkick</span>
+            </a>
+            <p>Discovering the next generation of football talent.</p>
+          </div>
+
+          <div className="footer-cta">
+            <p className="section-kicker">Start the conversation</p>
+            <a className="footer-action" href="https://wa.me/2349151910798" target="_blank" rel="noreferrer">
+              Speak to our management <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <nav className="footer-nav" aria-label="Footer navigation">
+            <a href="#academy">Academy</a>
+            <a href="#talent">Talent</a>
+            <a href="#stories">Stories</a>
+            <a href="#why-nextkick">Why Nextkick</a>
+          </nav>
+        </div>
+
+        <div className="footer-bottom">
+          <span>Scouting worldwide</span>
+          <span>Talent / Development / Opportunity</span>
+          <span>© 2026 Nextkick</span>
+        </div>
+      </footer>
     </main>
   );
 }
