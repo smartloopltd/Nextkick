@@ -452,6 +452,11 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
     padding: 18px 20px;
   }
 
+  .nav-links {
+    height: calc(100vh - 76px);
+    top: 76px;
+  }
+
   .hero-content {
     padding: 34px 20px 12px;
   }
@@ -510,6 +515,11 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
 @media (max-width: 360px) {
   .hero-nav {
     padding: 16px 18px;
+  }
+
+  .nav-links {
+    height: calc(100vh - 72px);
+    top: 72px;
   }
 
   .brand {
