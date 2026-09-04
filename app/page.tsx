@@ -121,16 +121,16 @@ export default function Home() {
 
           <div className="why-grid">
             <article>
-              <h3>See further</h3>
-              <p>Our global scouting network finds character and promise beyond the usual spotlight.</p>
+              <h3>Discover potential</h3>
+              <p>We search beyond the usual spotlight to find players with real character, drive, and promise.</p>
             </article>
             <article>
-              <h3>Develop fully</h3>
-              <p>Technical growth, football intelligence, and personal discipline move forward together.</p>
+              <h3>Build growth</h3>
+              <p>Through training, discipline, and performance, we help young players develop the skills and mindset to rise.</p>
             </article>
             <article>
-              <h3>Move forward</h3>
-              <p>We connect committed players with the guidance and opportunities needed for their next step.</p>
+              <h3>Create opportunity</h3>
+              <p>We connect emerging talent with the guidance, visibility, and chances they need to move forward.</p>
             </article>
           </div>
         </div>

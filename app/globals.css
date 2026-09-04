@@ -51,10 +51,28 @@ h1 { font-size: clamp(4.8rem, 11vw, 10.5rem); font-weight: 800; letter-spacing: 
 h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; letter-spacing: -.1em; text-transform: lowercase; }
 .hero-copy { color: #c3c8ba; font-size: clamp(.9rem, 1.4vw, 1.1rem); line-height: 1.55; margin: 38px 0 27px; max-width: 330px; }
 .hero-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 22px; }
-.button { font-size: .73rem; letter-spacing: .08em; padding: 16px 20px; text-transform: uppercase; }
+.button {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  box-shadow: 0 12px 32px rgba(124, 196, 255, 0.18);
+  display: inline-flex;
+  align-items: center;
+  font-size: .73rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding: 18px 28px;
+  text-transform: uppercase;
+}
 .button span { font-size: 1rem; margin-left: 12px; }
-.button-bright { background: var(--lime); color: #0d1725; }
-.button-bright:hover { background: #bfe5ff; }
+.button-bright {
+  background: linear-gradient(135deg, #8fd1ff 0%, #7cc4ff 100%);
+  color: #0d1725;
+}
+.button-bright:hover {
+  background: linear-gradient(135deg, #bfe8ff 0%, #9ad8ff 100%);
+  box-shadow: 0 18px 40px rgba(124, 196, 255, 0.3);
+  transform: translateY(-1px);
+}
 .button-quiet { border-bottom: 1px solid #73786b; color: #d4d8cc; padding-left: 0; padding-right: 0; }
 .button-quiet:hover { border-color: var(--lime); color: var(--lime); }
 .hero-footer { align-items: center; bottom: 30px; color: #b9c9d6; display: flex; font-size: .62rem; gap: 14px; left: 5vw; letter-spacing: .12em; position: absolute; text-transform: uppercase; }
@@ -331,8 +349,26 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
     margin-top: 32px;
     max-width: 100%;
   }
-  .hero-footer { bottom: 20px; left: 5vw; }
-  .hero-footer span:last-child { display: none; }
+  .hero-footer {
+    align-items: flex-start;
+    bottom: 18px;
+    display: block;
+    font-size: .48rem;
+    gap: 0;
+    left: 5vw;
+    letter-spacing: .05em;
+    line-height: 1.5;
+    right: 5vw;
+    text-align: left;
+    white-space: normal;
+  }
+  .hero-footer span {
+    display: block;
+    margin: 0 0 4px;
+  }
+  .hero-footer .footer-line {
+    display: none;
+  }
   .affiliate-section {
     justify-content: center;
     padding-left: 20px;
@@ -377,5 +413,10 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
     align-items: flex-start;
     flex-direction: column;
     gap: 8px;
+    letter-spacing: .08em;
+  }
+  .footer-bottom span {
+    white-space: normal;
+    word-break: break-word;
   }
 }
