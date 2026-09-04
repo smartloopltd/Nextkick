@@ -66,6 +66,41 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
   color: #10120f;
   padding: clamp(42px, 5vw, 90px) 5vw;
 }
+.affiliate-section {
+  background: #f3f7ff;
+  border-top: 1px solid rgba(16, 18, 15, 0.08);
+  display: flex;
+  justify-content: flex-start;
+  padding: clamp(34px, 4vw, 70px) 5vw;
+}
+.affiliate-content {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  gap: clamp(18px, 2vw, 34px);
+  justify-content: flex-start;
+  max-width: 980px;
+  padding: 0;
+  width: 100%;
+}
+.affiliate-copy {
+  max-width: 420px;
+}
+.affiliate-text {
+  color: #0d1725;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+.affiliate-logo {
+  display: block;
+  height: auto;
+  max-width: 300px;
+  width: 100%;
+}
 .section-header {
   margin: 0 auto 32px;
   max-width: 1200px;

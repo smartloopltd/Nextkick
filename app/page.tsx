@@ -49,10 +49,10 @@ export default function Home() {
         </header>
 
         <div className="hero-content" id="top">
-          <p className="eyebrow"><span /> Scouting tomorrow&apos;s stars</p>
-          <h1>Build<br /><em>the next</em><br />elite.</h1>
+          <p className="eyebrow"><span /> Discovering tomorrow&apos;s stars</p>
+          <h1>Develop<br /><em>the next</em><br />generation.</h1>
           <p className="hero-copy">
-            We discover football talent from every corner of the world, develop their craft, and help them turn raw potential into professional dreams.
+            We discover young football talent across Africa, guide their growth, and create opportunities for them to compete, improve, and get noticed.
           </p>
           <div className="hero-actions">
             <a className="button button-bright" href="https://play.google.com/store/apps/details?id=com.nextkick.user" target="_blank" rel="noreferrer">Get our app and register today <span aria-hidden="true">↗</span></a>
@@ -60,9 +60,9 @@ export default function Home() {
         </div>
 
         <div className="hero-footer">
-          <span>Scouting worldwide</span>
+          <span>Discovering talent</span>
           <span className="footer-line" />
-          <span>Talent / Development / Opportunity</span>
+          <span>Development / Growth / Opportunity</span>
         </div>
       </section>
 
@@ -90,10 +90,10 @@ export default function Home() {
             <div className="story-copy">
               <h3>Talent</h3>
               <p>
-                We scout raw talent across borders and back players with ambition, character, and the hunger to grow. Our work begins with identifying potential early, even before the world has a chance to notice it.
+                We look beyond the highlight reel and scout for the qualities that matter most: discipline, character, coachability, and the hunger to improve. At NextKick, we identify potential early and help turn it into lasting progress.
               </p>
               <p>
-                We look beyond the highlight reel, focusing on what matters most: discipline, mentality, coachability, and the ability to improve under pressure. We believe the next great player is not only defined by skill, but by the mindset to keep developing.
+                Great football is not only about skill; it is about mindset, consistency, and the willingness to keep growing under pressure. We back players who are ready to learn, compete, and rise to the next level.
               </p>
             </div>
           </article>
@@ -102,10 +102,10 @@ export default function Home() {
             <div className="story-copy">
               <h3>Stories</h3>
               <p>
-                Every player has a path. Every journey matters. We celebrate the progress, resilience, and dream behind every rise, because success is never built on talent alone.
+                Every player has a journey, and every step matters. From first training sessions to breakthrough performances, these are the stories of resilience, belief, and the work behind every rise.
               </p>
               <p>
-                These are the stories of belief, hard work, and the moments that turn promise into possibility. From first training sessions to breakthrough performances, each chapter shapes the future of the player and the legacy they are building.
+                At NextKick, we celebrate the moments that turn potential into progress and progress into opportunity. This is where ambition meets support, and where future stars begin to build their legacy.
               </p>
             </div>
           </article>
@@ -132,6 +132,20 @@ export default function Home() {
               <h3>Move forward</h3>
               <p>We connect committed players with the guidance and opportunities needed for their next step.</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="brand-section affiliate-section" aria-label="Binal Sports partnership">
+        <div className="affiliate-content">
+          <img
+            src="/img/photo_2026-09-04_17-52-19.jpg"
+            alt="Binal Sports logo"
+            className="affiliate-logo"
+          />
+          <div className="affiliate-copy">
+            <p className="section-kicker">Major partner</p>
+            <p className="affiliate-text">Binal Sports is a proud supporter and strategic partner of the NextKick platform, helping drive opportunity, visibility, and growth for emerging football talent.</p>
           </div>
         </div>
       </section>
