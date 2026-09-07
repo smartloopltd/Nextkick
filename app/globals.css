@@ -4,14 +4,12 @@
   --background: #0c1624;
   --foreground: #edf5ff;
   --lime: #7cc4ff;
-  --muted: #a9becf;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 body {
@@ -123,15 +121,10 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
 }
 .affiliate-content {
   align-items: center;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
   display: flex;
   gap: clamp(18px, 2vw, 34px);
   justify-content: flex-start;
   max-width: 980px;
-  padding: 0;
   width: 100%;
 }
 .affiliate-copy {
@@ -164,15 +157,7 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
   max-width: 980px;
 }
 .story-block {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  display: block;
-  padding: 0;
   scroll-margin-top: 112px;
-}
-.story-copy {
-  width: 100%;
 }
 .story-copy h2 {
   color: #10120f;
@@ -224,8 +209,8 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
   border: 1px solid rgba(16, 18, 15, 0.1);
   border-radius: 0;
   box-shadow: 0 16px 42px rgba(12, 22, 36, 0.08);
+  margin: 0;
   overflow: hidden;
-  position: relative;
 }
 
 .video-media {
@@ -313,6 +298,9 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
   line-height: 1.5;
   margin: 22px 0 0;
   max-width: 220px;
+}
+.footer-brand {
+  color: #0d1725;
 }
 .office-address {
   color: #0d1725;

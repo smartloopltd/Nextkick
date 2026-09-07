@@ -19,6 +19,10 @@ interface Benefit {
   description: string;
 }
 
+interface BrandLinkProps {
+  className?: string;
+}
+
 const navigationLinks: NavigationLink[] = [
   { href: "#academy", label: "About Us" },
   { href: "#talent", label: "Talent" },
@@ -75,6 +79,7 @@ const benefits: Benefit[] = [
 ];
 
 const appStoreUrl = "https://play.google.com/store/apps/details?id=com.nextkick.user";
+const videoSrc = "/img/nextkick_app_video.mp4";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 const structuredData = {
@@ -109,7 +114,7 @@ const structuredData = {
   ],
 };
 
-function BrandLink({ className = "brand" }: { className?: string }) {
+function BrandLink({ className = "brand" }: BrandLinkProps) {
   return (
     <a className={className} href="#top" aria-label="Nextkick home">
       <span>Nextkick</span>
@@ -122,7 +127,7 @@ function SiteHeader() {
   const navMenuRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    if (!menuOpen) return undefined;
+    if (!menuOpen) return;
 
     const handleOutsidePointer = (event: PointerEvent) => {
       if (navMenuRef.current && !navMenuRef.current.contains(event.target as Node)) {
@@ -214,7 +219,7 @@ function VideoSection() {
         <figure className="video-frame">
           <video
             className="video-media"
-            src="/img/nextkick_app_video.mp4"
+            src={videoSrc}
             controls
             playsInline
             preload="metadata"
