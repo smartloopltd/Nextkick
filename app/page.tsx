@@ -1,13 +1,95 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
-export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const navMenuRef = useRef<HTMLElement>(null);
+interface NavigationLink {
+  href: string;
+  label: string;
+}
+
+interface Story {
+  id: string;
+  title: string;
+  paragraphs: string[];
+}
+
+interface Benefit {
+  title: string;
+  description: string;
+}
+
+const navigationLinks: NavigationLink[] = [
+  { href: "#academy", label: "About Us" },
+  { href: "#talent", label: "Talent" },
+  { href: "#stories", label: "Stories" },
+];
+
+const footerLinks: NavigationLink[] = [
+  ...navigationLinks,
+  { href: "#why-nextkick", label: "Why Nextkick" },
+];
+
+const stories: Story[] = [
+  {
+    id: "academy",
+    title: "About Us",
+    paragraphs: [
+      "NextKick is designed to transform the way young football talents in Nigeria and across Africa are developed and discovered.",
+      "With NextKick, young players can create detailed profiles that highlight their growth and performance over time. The app offers a comprehensive platform for tracking development through daily drills, and it also hosts exciting tournaments. These tournaments feature live scoring, team standings, and individual player stats, making it easy for everyone to follow and support the athletes.",
+      "As we continue to grow, we also plan to empower users to organize their own tournaments, creating a vibrant community for young footballers.",
+      "And the best part? NextKick also serves as a scouting tool. It allows scouts and agents to discover new talent by viewing player profiles and watching their progress, making it a fantastic opportunity for young athletes to get noticed.",
+    ],
+  },
+  {
+    id: "talent",
+    title: "Talent",
+    paragraphs: [
+      "We look beyond the highlight reel and scout for the qualities that matter most: discipline, character, coachability, and the hunger to improve. At NextKick, we identify potential early and help turn it into lasting progress.",
+      "Great football is not only about skill; it is about mindset, consistency, and the willingness to keep growing under pressure. We back players who are ready to learn, compete, and rise to the next level.",
+    ],
+  },
+  {
+    id: "stories",
+    title: "Stories",
+    paragraphs: [
+      "Every player has a journey, and every step matters. From first training sessions to breakthrough performances, these are the stories of resilience, belief, and the work behind every rise.",
+      "At NextKick, we celebrate the moments that turn potential into progress and progress into opportunity. This is where ambition meets support, and where future stars begin to build their legacy.",
+    ],
+  },
+];
+
+const benefits: Benefit[] = [
+  {
+    title: "Discover potential",
+    description: "We search beyond the usual spotlight to find players with real character, drive, and promise.",
+  },
+  {
+    title: "Build growth",
+    description: "Through training, discipline, and performance, we help young players develop the skills and mindset to rise.",
+  },
+  {
+    title: "Create opportunity",
+    description: "We connect emerging talent with the guidance, visibility, and chances they need to move forward.",
+  },
+];
+
+const appStoreUrl = "https://play.google.com/store/apps/details?id=com.nextkick.user";
+
+function BrandLink({ className = "brand" }: { className?: string }) {
+  return (
+    <a className={className} href="#top" aria-label="Nextkick home">
+      <span>Nextkick</span>
+    </a>
+  );
+}
+
+function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const navMenuRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    if (!menuOpen) return;
+    if (!menuOpen) return undefined;
 
     const handleOutsidePointer = (event: PointerEvent) => {
       if (navMenuRef.current && !navMenuRef.current.contains(event.target as Node)) {
@@ -20,184 +102,177 @@ export default function Home() {
   }, [menuOpen]);
 
   return (
-    <main>
-      <section className="match-hero">
-        <header className="hero-nav">
-          <a className="brand" href="#top" aria-label="Nextkick home">
-            <span>Nextkick</span>
+    <header className="hero-nav">
+      <BrandLink />
+      <nav className="nav-menu" ref={navMenuRef} aria-label="Main navigation">
+        <button
+          className="nav-toggle"
+          type="button"
+          aria-controls="primary-navigation"
+          aria-expanded={menuOpen}
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </button>
+        <div className={`nav-links ${menuOpen ? "is-open" : ""}`} id="primary-navigation">
+          {navigationLinks.map(({ href, label }) => (
+            <a key={href} href={href} onClick={() => setMenuOpen(false)}>
+              {label}
+            </a>
+          ))}
+        </div>
+      </nav>
+    </header>
+  );
+}
+
+function HeroSection() {
+  return (
+    <section className="match-hero" aria-labelledby="hero-title">
+      <SiteHeader />
+      <div className="hero-content" id="top">
+        <p className="eyebrow"><span aria-hidden="true" /> Discovering tomorrow&apos;s stars</p>
+        <h1 id="hero-title">Develop<br /><em>the next</em><br />generation.</h1>
+        <p className="hero-copy">
+          We discover young football talent across Africa, guide their growth, and create opportunities for them to compete, improve, and get noticed.
+        </p>
+        <div className="hero-actions">
+          <a className="button button-bright" href={appStoreUrl} target="_blank" rel="noreferrer">
+            Get our app and register today <span aria-hidden="true">↗</span>
           </a>
-
-          <nav className="nav-menu" ref={navMenuRef} aria-label="Main navigation">
-            <button
-              className="nav-toggle"
-              aria-label="Toggle navigation"
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen((open) => !open)}
-            >
-              <span />
-              <span />
-              <span />
-            </button>
-
-            <div className={`nav-links ${menuOpen ? "is-open" : ""}`}>
-              <a href="#academy" onClick={() => setMenuOpen(false)}>About Us</a>
-              <a href="#talent" onClick={() => setMenuOpen(false)}>Talent</a>
-              <a href="#stories" onClick={() => setMenuOpen(false)}>Stories</a>
-            </div>
-          </nav>
-        </header>
-
-        <div className="hero-content" id="top">
-          <p className="eyebrow"><span /> Discovering tomorrow&apos;s stars</p>
-          <h1>Develop<br /><em>the next</em><br />generation.</h1>
-          <p className="hero-copy">
-            We discover young football talent across Africa, guide their growth, and create opportunities for them to compete, improve, and get noticed.
-          </p>
-          <div className="hero-actions">
-            <a className="button button-bright" href="https://play.google.com/store/apps/details?id=com.nextkick.user" target="_blank" rel="noreferrer">Get our app and register today <span aria-hidden="true">↗</span></a>
-          </div>
         </div>
+      </div>
+      <div className="hero-footer" aria-label="Nextkick focus areas">
+        <span>Discovering talent</span>
+        <span className="footer-line" aria-hidden="true" />
+        <span>Development / Growth / Opportunity</span>
+      </div>
+    </section>
+  );
+}
 
-        <div className="hero-footer">
-          <span>Discovering talent</span>
-          <span className="footer-line" />
-          <span>Development / Growth / Opportunity</span>
-        </div>
-      </section>
-
-      <section className="brand-section">
-        <div className="story-stack">
-          <article className="story-block" id="academy">
+function StoriesSection() {
+  return (
+    <section className="brand-section" aria-label="Nextkick stories">
+      <div className="story-stack">
+        {stories.map(({ id, title, paragraphs }) => (
+          <article className="story-block" id={id} key={id}>
             <div className="story-copy">
-              <h3>About Us</h3>
-              <p>
-                NextKick is designed to transform the way young football talents in Nigeria and across Africa are developed and discovered.
-              </p>
-              <p>
-                With NextKick, young players can create detailed profiles that highlight their growth and performance over time. The app offers a comprehensive platform for tracking development through daily drills, and it also hosts exciting tournaments. These tournaments feature live scoring, team standings, and individual player stats, making it easy for everyone to follow and support the athletes.
-              </p>
-              <p>
-                As we continue to grow, we also plan to empower users to organize their own tournaments, creating a vibrant community for young footballers.
-              </p>
-              <p>
-                And the best part? NextKick also serves as a scouting tool. It allows scouts and agents to discover new talent by viewing player profiles and watching their progress, making it a fantastic opportunity for young athletes to get noticed.
-              </p>
+              <h2>{title}</h2>
+              {paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>
           </article>
+        ))}
+      </div>
+    </section>
+  );
+}
 
-          <article className="story-block" id="talent">
-            <div className="story-copy">
-              <h3>Talent</h3>
-              <p>
-                We look beyond the highlight reel and scout for the qualities that matter most: discipline, character, coachability, and the hunger to improve. At NextKick, we identify potential early and help turn it into lasting progress.
-              </p>
-              <p>
-                Great football is not only about skill; it is about mindset, consistency, and the willingness to keep growing under pressure. We back players who are ready to learn, compete, and rise to the next level.
-              </p>
-            </div>
-          </article>
-
-          <article className="story-block" id="stories">
-            <div className="story-copy">
-              <h3>Stories</h3>
-              <p>
-                Every player has a journey, and every step matters. From first training sessions to breakthrough performances, these are the stories of resilience, belief, and the work behind every rise.
-              </p>
-              <p>
-                At NextKick, we celebrate the moments that turn potential into progress and progress into opportunity. This is where ambition meets support, and where future stars begin to build their legacy.
-              </p>
-            </div>
-          </article>
+function VideoSection() {
+  return (
+    <section className="video-feature" aria-labelledby="video-title">
+      <div className="video-feature-inner">
+        <div className="video-copy">
+          <h2 id="video-title">See how NextKick helps players grow, compete, and get discovered.</h2>
         </div>
-      </section>
-
-      <section className="video-feature" aria-label="NextKick app overview video">
-        <div className="video-feature-inner">
-          <div className="video-copy">
-            <h2>See how NextKick helps players grow, compete, and get discovered.</h2>
-          </div>
-
-          <div className="video-frame" aria-label="NextKick app overview video">
-            <video
-              className="video-media"
-              src="/img/nextkick_app_video.mp4"
-              controls
-              playsInline
-              preload="metadata"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="why-section" id="why-nextkick">
-        <div className="why-inner">
-          <div className="why-heading">
-            <p className="section-kicker">Why Nextkick</p>
-            <h2>Built for the player behind the potential.</h2>
-          </div>
-
-          <div className="why-grid">
-            <article>
-              <h3>Discover potential</h3>
-              <p>We search beyond the usual spotlight to find players with real character, drive, and promise.</p>
-            </article>
-            <article>
-              <h3>Build growth</h3>
-              <p>Through training, discipline, and performance, we help young players develop the skills and mindset to rise.</p>
-            </article>
-            <article>
-              <h3>Create opportunity</h3>
-              <p>We connect emerging talent with the guidance, visibility, and chances they need to move forward.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="brand-section affiliate-section" aria-label="Binal Sports partnership">
-        <div className="affiliate-content">
-          <img
-            src="/img/photo_2026-09-04_17-52-19.jpg"
-            alt="Binal Sports logo"
-            className="affiliate-logo"
+        <figure className="video-frame">
+          <video
+            className="video-media"
+            src="/img/nextkick_app_video.mp4"
+            controls
+            playsInline
+            preload="metadata"
+            aria-label="NextKick app overview video"
           />
-          <div className="affiliate-copy">
-            <p className="section-kicker">Major partner</p>
-            <p className="affiliate-text">Binal Sports is a proud supporter and strategic partner of the NextKick platform, helping drive opportunity, visibility, and growth for emerging football talent.</p>
-          </div>
+        </figure>
+      </div>
+    </section>
+  );
+}
+
+function WhySection() {
+  return (
+    <section className="why-section" id="why-nextkick" aria-labelledby="why-title">
+      <div className="why-inner">
+        <div className="why-heading">
+          <p className="section-kicker">Why Nextkick</p>
+          <h2 id="why-title">Built for the player behind the potential.</h2>
         </div>
-      </section>
-
-      <footer className="site-footer" id="contact">
-        <div className="footer-main">
-          <div className="footer-brand-block">
-            <a className="brand footer-brand" href="#top" aria-label="Nextkick home">
-              <span>Nextkick</span>
-            </a>
-            <p>Discovering the next generation of football talent.</p>
-            <p className="office-address">Shop 12 informal section Wuse market, Fct, Abuja, Nigeria</p>
-            <p className="office-address">+234 915 191 0798</p>
-          </div>
-
-          <div className="footer-cta">
-            <a className="footer-action" href="https://play.google.com/store/apps/details?id=com.nextkick.user" target="_blank" rel="noreferrer">
-              Get our app and register today <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-
-          <nav className="footer-nav" aria-label="Footer navigation">
-            <a href="#academy">About Us</a>
-            <a href="#talent">Talent</a>
-            <a href="#stories">Stories</a>
-            <a href="#why-nextkick">Why Nextkick</a>
-          </nav>
+        <div className="why-grid">
+          {benefits.map(({ title, description }) => (
+            <article key={title}>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </article>
+          ))}
         </div>
+      </div>
+    </section>
+  );
+}
 
-        <div className="footer-bottom">
-          <span>Scouting worldwide</span>
-          <span>Talent / Development / Opportunity</span>
-          <span>© 2026 Nextkick</span>
+function PartnerSection() {
+  return (
+    <section className="brand-section affiliate-section" aria-labelledby="partner-title">
+      <div className="affiliate-content">
+        <Image
+          src="/img/photo_2026-09-04_17-52-19.jpg"
+          alt="Binal Sports logo"
+          className="affiliate-logo"
+          width={1000}
+          height={552}
+        />
+        <div className="affiliate-copy">
+          <p className="section-kicker" id="partner-title">Major partner</p>
+          <p className="affiliate-text">Binal Sports is a proud supporter and strategic partner of the NextKick platform, helping drive opportunity, visibility, and growth for emerging football talent.</p>
         </div>
-      </footer>
+      </div>
+    </section>
+  );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="site-footer" id="contact">
+      <div className="footer-main">
+        <div className="footer-brand-block">
+          <BrandLink className="brand footer-brand" />
+          <p>Discovering the next generation of football talent.</p>
+          <address className="office-address">
+            Shop 12 informal section Wuse market, Fct, Abuja, Nigeria<br />
+            <a href="tel:+2349151910798">+234 915 191 0798</a>
+          </address>
+        </div>
+        <div className="footer-cta">
+          <a className="footer-action" href={appStoreUrl} target="_blank" rel="noreferrer">
+            Get our app and register today <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <nav className="footer-nav" aria-label="Footer navigation">
+          {footerLinks.map(({ href, label }) => <a key={href} href={href}>{label}</a>)}
+        </nav>
+      </div>
+      <div className="footer-bottom">
+        <span>Scouting worldwide</span>
+        <span>Talent / Development / Opportunity</span>
+        <span>© 2026 Nextkick</span>
+      </div>
+    </footer>
+  );
+}
+
+export default function Home() {
+  return (
+    <main>
+      <HeroSection />
+      <StoriesSection />
+      <VideoSection />
+      <WhySection />
+      <PartnerSection />
+      <SiteFooter />
     </main>
   );
 }
