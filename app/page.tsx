@@ -24,7 +24,7 @@ export default function Home() {
       <section className="match-hero">
         <header className="hero-nav">
           <a className="brand" href="#top" aria-label="Nextkick home">
-            <span className="brand-word">NEXTKICK</span>
+            <span>Nextkick</span>
           </a>
 
           <nav className="nav-menu" ref={navMenuRef} aria-label="Main navigation">
@@ -171,7 +171,6 @@ export default function Home() {
         <div className="footer-main">
           <div className="footer-brand-block">
             <a className="brand footer-brand" href="#top" aria-label="Nextkick home">
-              <span className="brand-mark">N</span>
               <span>Nextkick</span>
             </a>
             <p>Discovering the next generation of football talent.</p>
