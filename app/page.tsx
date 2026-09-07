@@ -24,8 +24,7 @@ export default function Home() {
       <section className="match-hero">
         <header className="hero-nav">
           <a className="brand" href="#top" aria-label="Nextkick home">
-            <span className="brand-mark">N</span>
-            <span>Nextkick</span>
+            <span className="brand-word">NEXTKICK</span>
           </a>
 
           <nav className="nav-menu" ref={navMenuRef} aria-label="Main navigation">
@@ -112,6 +111,24 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="video-feature" aria-label="NextKick app overview video">
+        <div className="video-feature-inner">
+          <div className="video-copy">
+            <h2>See how NextKick helps players grow, compete, and get discovered.</h2>
+          </div>
+
+          <div className="video-frame" aria-label="NextKick app overview video">
+            <video
+              className="video-media"
+              src="/img/nextkick_app_video.mp4"
+              controls
+              playsInline
+              preload="metadata"
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="why-section" id="why-nextkick">
         <div className="why-inner">
           <div className="why-heading">
@@ -158,10 +175,11 @@ export default function Home() {
               <span>Nextkick</span>
             </a>
             <p>Discovering the next generation of football talent.</p>
+            <p className="office-address">Shop 12 informal section Wuse market, Fct, Abuja, Nigeria</p>
+            <p className="office-address">+234 915 191 0798</p>
           </div>
 
           <div className="footer-cta">
-            <p className="section-kicker">Start the conversation</p>
             <a className="footer-action" href="https://play.google.com/store/apps/details?id=com.nextkick.user" target="_blank" rel="noreferrer">
               Get our app and register today <span aria-hidden="true">↗</span>
             </a>

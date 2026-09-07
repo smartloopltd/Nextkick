@@ -35,8 +35,32 @@ a { color: inherit; text-decoration: none; }
 .match-hero::after { background: linear-gradient(0deg, rgba(8, 15, 27, .84), transparent 35%); content: ""; inset: 0; pointer-events: none; position: absolute; }
 .hero-nav { align-items: center; background: rgba(8, 15, 27, .82); backdrop-filter: blur(12px); display: flex; justify-content: space-between; left: 0; margin: 0 auto; max-width: none; padding: 30px 5vw; position: fixed; right: 0; top: 0; z-index: 3; }
 .hero-content, .hero-footer { position: relative; z-index: 1; }
-.brand { align-items: center; display: flex; font-size: 1.1rem; font-weight: 800; gap: 10px; letter-spacing: -.04em; }
-.brand-mark { align-items: center; background: var(--lime); border-radius: 50%; color: #0d1725; display: flex; font-size: .9rem; height: 32px; justify-content: center; transform: rotate(-12deg); width: 32px; }
+.brand {
+  align-items: center;
+  display: flex;
+  font-size: clamp(1.4rem, 1.8vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -.08em;
+  line-height: 1;
+}
+.brand-word {
+  color: #8ed1ff;
+  display: inline-block;
+  letter-spacing: -.08em;
+  text-transform: uppercase;
+}
+.brand-mark {
+  align-items: center;
+  background: var(--lime);
+  border-radius: 50%;
+  color: #0d1725;
+  display: none;
+  font-size: .9rem;
+  height: 32px;
+  justify-content: center;
+  transform: rotate(-12deg);
+  width: 32px;
+}
 .nav-menu { position: relative; z-index: 2; }
 .nav-toggle { background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 999px; cursor: pointer; display: none; height: 40px; padding: 10px 12px; width: 44px; }
 .nav-toggle span { background: var(--foreground); border-radius: 999px; display: block; height: 2px; margin: 4px 0; width: 100%; }
@@ -175,6 +199,61 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
 .story-copy p:last-child {
   margin-bottom: 0;
 }
+
+.video-feature {
+  background: linear-gradient(180deg, #f4f8ff 0%, #edf4ff 100%);
+  border-top: 1px solid rgba(16, 18, 15, 0.08);
+  color: #10120f;
+  padding: clamp(56px, 8vw, 110px) 5vw;
+}
+
+.video-feature-inner {
+  align-items: center;
+  display: grid;
+  gap: clamp(26px, 3vw, 54px);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.video-copy {
+  max-width: 520px;
+}
+
+.video-copy h2 {
+  color: #10120f;
+  font-size: clamp(2rem, 4vw, 4rem);
+  letter-spacing: -.07em;
+  line-height: .95;
+  margin: 0 0 18px;
+}
+
+.video-copy p:last-child {
+  color: #43515d;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.video-frame {
+  background: #dfeeff;
+  border: 1px solid rgba(16, 18, 15, 0.08);
+  border-radius: 0;
+  box-shadow: 0 18px 50px rgba(12, 22, 36, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.video-media {
+  display: block;
+  background: #0d1725;
+  border-radius: 0;
+  height: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  width: 100%;
+}
+
 .why-section {
   background: #10120f;
   color: #f4f1e8;
@@ -251,6 +330,13 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
   margin: 22px 0 0;
   max-width: 220px;
 }
+.office-address {
+  color: #0d1725;
+  font-size: .82rem;
+  line-height: 1.6;
+  margin-top: 12px;
+  max-width: 260px;
+}
 .footer-brand .brand-mark {
   background: #0d1725;
   color: #8cc8ff;
@@ -297,6 +383,13 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
   max-width: 1200px;
   padding-top: 16px;
   text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+  .hero-actions .button {
+    font-size: .56rem;
+    padding: 11px 17px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -409,6 +502,19 @@ h1 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; lette
   }
   .story-stack { gap: 32px; }
   .story-copy p { margin-bottom: 10px; }
+  .video-feature-inner {
+    grid-template-columns: 1fr;
+  }
+  .video-copy {
+    max-width: 100%;
+  }
+  .video-copy h2 {
+    margin-bottom: 12px;
+  }
+  .video-play {
+    height: 62px;
+    width: 62px;
+  }
   .why-heading {
     display: block;
     margin-bottom: 48px;
