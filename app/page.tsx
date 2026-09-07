@@ -24,7 +24,7 @@ interface BrandLinkProps {
 }
 
 const navigationLinks: NavigationLink[] = [
-  { href: "#academy", label: "About Us" },
+  { href: "#about-us", label: "About Us" },
   { href: "#talent", label: "Talent" },
   { href: "#stories", label: "Stories" },
 ];
@@ -36,7 +36,7 @@ const footerLinks: NavigationLink[] = [
 
 const stories: Story[] = [
   {
-    id: "academy",
+    id: "about-us",
     title: "About Us",
     paragraphs: [
       "NextKick is designed to transform the way young football talents in Nigeria and across Africa are developed and discovered.",
@@ -198,10 +198,10 @@ function StoriesSection() {
       <div className="story-stack">
         {stories.map(({ id, title, paragraphs }) => (
           <article className="story-block" id={id} key={id}>
-            <div className="story-copy">
-              <h2>{title}</h2>
+            <section className="story-copy" aria-labelledby={`${id}-title`}>
+              <h2 id={`${id}-title`}>{title}</h2>
               {paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            </div>
+            </section>
           </article>
         ))}
       </div>
@@ -213,9 +213,9 @@ function VideoSection() {
   return (
     <section className="video-feature" aria-labelledby="video-title">
       <div className="video-feature-inner">
-        <div className="video-copy">
+        <header className="video-copy">
           <h2 id="video-title">See how NextKick helps players grow, compete, and get discovered.</h2>
-        </div>
+        </header>
         <figure className="video-frame">
           <video
             className="video-media"
@@ -235,10 +235,10 @@ function WhySection() {
   return (
     <section className="why-section" id="why-nextkick" aria-labelledby="why-title">
       <div className="why-inner">
-        <div className="why-heading">
+        <header className="why-heading">
           <p className="section-kicker">Why Nextkick</p>
           <h2 id="why-title">Built for the player behind the potential.</h2>
-        </div>
+        </header>
         <div className="why-grid">
           {benefits.map(({ title, description }) => (
             <article key={title}>
