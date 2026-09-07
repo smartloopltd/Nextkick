@@ -75,6 +75,39 @@ const benefits: Benefit[] = [
 ];
 
 const appStoreUrl = "https://play.google.com/store/apps/details?id=com.nextkick.user";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "#organization",
+      name: "NextKick",
+      url: siteUrl,
+      description: "NextKick helps young football talent across Nigeria and Africa build profiles, develop their game, compete, and get discovered.",
+      telephone: "+2349151910798",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Shop 12 informal section Wuse market",
+        addressLocality: "Abuja",
+        addressRegion: "FCT",
+        addressCountry: "NG",
+      },
+      areaServed: ["Nigeria", "Africa"],
+      knowsAbout: ["Football talent development", "Youth football scouting", "Football tournaments"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "#website",
+      name: "NextKick",
+      url: siteUrl,
+      description: "Discovering Africa's next football stars.",
+      publisher: { "@id": "#organization" },
+      mentions: { "@type": "Organization", name: "Binal Sports" },
+    },
+  ],
+};
 
 function BrandLink({ className = "brand" }: { className?: string }) {
   return (
@@ -267,6 +300,10 @@ function SiteFooter() {
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <HeroSection />
       <StoriesSection />
       <VideoSection />
